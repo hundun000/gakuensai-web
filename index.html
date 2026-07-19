@@ -1,0 +1,336 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Seishun School Festival 2024</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Space+Grotesk:wght@600&amp;family=Gochi+Hand&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#251a00",
+                        "on-primary-fixed-variant": "#8e1300",
+                        "on-primary-fixed": "#3e0400",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#edc157",
+                        "primary": "#b51c00",
+                        "on-surface": "#1b1c15",
+                        "background": "#fbfaee",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#936f03",
+                        "outline-variant": "#e5bdb6",
+                        "secondary-fixed-dim": "#b6c5fb",
+                        "inverse-on-surface": "#f2f1e5",
+                        "on-background": "#1b1c15",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-primary-container": "#fffbff",
+                        "secondary-container": "#b9c7fd",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary": "#755700",
+                        "primary-container": "#dc3214",
+                        "surface-dim": "#dbdbcf",
+                        "on-secondary-fixed": "#061845",
+                        "surface-tint": "#ba1c00",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#303129",
+                        "secondary": "#4e5d8c",
+                        "outline": "#916f69",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#efeee3",
+                        "surface-container-low": "#f5f4e8",
+                        "surface-bright": "#fbfaee",
+                        "on-surface-variant": "#5c403a",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "tertiary-fixed": "#ffdf9b",
+                        "surface-variant": "#e4e3d7",
+                        "on-secondary-fixed-variant": "#364572",
+                        "surface": "#fbfaee",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#445281",
+                        "primary-fixed-dim": "#ffb4a5",
+                        "surface-container-high": "#e9e9dd",
+                        "inverse-primary": "#ffb4a5",
+                        "primary-fixed": "#ffdad3",
+                        "surface-container-highest": "#e4e3d7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "xs": "8px",
+                        "sm": "16px",
+                        "margin-desktop": "48px",
+                        "xl": "64px",
+                        "margin-mobile": "16px",
+                        "md": "24px",
+                        "gutter": "20px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-caps": ["Space Grotesk"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "handwriting": ["Gochi Hand"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fbfaee;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .paper-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+        }
+        .sticker-lift {
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+        }
+        .sticker-lift:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: 0 15px 30px rgba(181, 28, 0, 0.15);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        .floating-element {
+            animation: float 4s ease-in-out infinite;
+        }
+        .custom-bounce:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background dark:bg-surface-dim border-b-2 border-secondary dark:border-secondary-fixed shadow-[4px_4px_0px_0px_rgba(6,24,69,1)]">
+    <div class="flex justify-between items-center w-full px-margin-desktop py-sm max-w-screen-2xl mx-auto">
+        <div class="flex items-center gap-sm">
+            <span class="font-display-lg text-display-lg tracking-tight text-primary dark:text-primary-fixed-dim">SEISHUN FEST</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-lg">
+            <a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-primary transition-colors" href="#">Event Info</a>
+            <a class="text-on-surface dark:text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Stall List</a>
+            <a class="text-on-surface dark:text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Mini-Game</a>
+            <a class="text-on-surface dark:text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Schedule</a>
+        </nav>
+        <div class="flex items-center gap-md">
+            <button class="material-symbols-outlined text-on-surface-variant p-base hover:bg-surface-container-high rounded-full active:translate-y-0.5 active:translate-x-0.5 transition-all">search</button>
+            <button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-caps text-label-caps hover:opacity-90 active:translate-y-0.5 active:translate-x-0.5 transition-all shadow-[2px_2px_0px_0px_rgba(6,24,69,1)]">Entry Ticket</button>
+        </div>
+    </div>
+</header>
+<main class="mt-20">
+    <!-- Section 1: Hero Banner -->
+    <section class="relative min-h-[850px] flex items-center justify-center overflow-hidden px-gutter py-xl">
+        <div class="absolute inset-0 z-0">
+            <img alt="Bustling Japanese high school festival at night with colorful stalls and lanterns" class="w-full h-full object-cover brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFhYTPUBpyyxEN40vDkm6ddfoKD4m2byDgrpWOsnB0SQTJK04Vit9cao5QfnMaiLkTRQZg1bSW8e9fgQgq0WFoC2rzScfnnWHd2FUz3ZZ7GWPtbYBrI-WrAxcrCZV8LaXhxUC3fvj7vC7ZCPqRxlMlkHxoRB81B_qeIj52LXhoYfdmlevqJYQ2JC5fK8INsu5BnTA50w50ErkVmHuAgACCAHmW5jN4q83GoauqB9aDRmo8IQCPv-lTaSY8x35fGPpoUDFgj7m2qGY">
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        </div>
+        <!-- School-style Floating Decorations -->
+        <div class="absolute top-24 left-16 floating-element hidden lg:block opacity-90">
+            <div class="bg-primary-container text-on-primary-container p-6 rounded-lg shadow-xl rotate-[-12deg] border-2 border-white">
+                <span class="material-symbols-outlined text-[48px]">school</span>
+            </div>
+        </div>
+        <div class="absolute bottom-48 right-16 floating-element hidden lg:block opacity-90" style="animation-delay: 1.5s;">
+            <div class="bg-secondary-container text-on-secondary-container p-6 rounded-lg shadow-xl rotate-[8deg] border-2 border-white">
+                <span class="material-symbols-outlined text-[48px]">music_note</span>
+            </div>
+        </div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center gap-md">
+            <div class="inline-flex items-center gap-xs px-sm py-xs bg-secondary-container text-on-secondary-container rounded-lg font-label-caps text-label-caps mb-base shadow-[2px_2px_0px_0px_rgba(6,24,69,1)]">
+                <span class="material-symbols-outlined text-sm">event</span>
+                OCTOBER 25 - 27, 2024
+            </div>
+            <h1 class="font-display-lg text-[64px] md:text-[96px] leading-tight text-white tracking-tighter filter drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+                Seishun Festival <br><span class="text-secondary-fixed">2024</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-white max-w-2xl mb-lg drop-shadow-md">
+                Experience the pulse of youth at our annual campus extravaganza. From school-made street food to digital adventures, your ultimate student memories start here.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-md">
+                <button class="bg-primary text-on-primary px-xl py-md rounded-lg font-headline-md text-headline-md shadow-[4px_4px_0px_0px_rgba(6,24,69,1)] hover:translate-y-1 hover:shadow-none transition-all custom-bounce">
+                    Explore Stalls
+                </button>
+                <button class="bg-white/10 backdrop-blur-md border-2 border-white text-white px-xl py-md rounded-lg font-headline-md text-headline-md hover:bg-white/20 transition-all custom-bounce">
+                    View Schedule
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Section 2: Stall Slider -->
+    <section class="py-xl bg-surface-container-low overflow-hidden paper-texture">
+        <div class="max-w-screen-2xl mx-auto px-margin-desktop mb-lg flex justify-between items-end">
+            <div>
+                <h2 class="font-handwriting text-display-lg text-primary tracking-tight mb-xs">Club Exhibition</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant">Check out what every club has prepared for you!</p>
+            </div>
+            <div class="flex gap-sm">
+                <button class="p-base rounded-lg bg-white border-2 border-secondary shadow-[2px_2px_0px_0px_rgba(6,24,69,1)] hover:translate-y-0.5 active:shadow-none transition-all">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button class="p-base rounded-lg bg-white border-2 border-secondary shadow-[2px_2px_0px_0px_rgba(6,24,69,1)] hover:translate-y-0.5 active:shadow-none transition-all">
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+        <div class="flex gap-md overflow-x-auto px-margin-desktop pb-xl hide-scrollbar scroll-smooth">
+            <!-- Stall Card 1: Cooking Club -->
+            <div class="min-w-[320px] bg-white rounded-lg overflow-hidden sticker-lift border-2 border-outline shadow-[6px_6px_0px_0px_rgba(145,111,105,0.2)]">
+                <div class="h-48 relative">
+                    <img alt="Cooking Club Yakisoba" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm_TkKL97ktzSUpsxwAXwkKa6SV6f8UMH2D51E_OoscoJisV9V7WkMkRdx3vBiUiZiIqWL5LgISjcJV_ONIU-6UvCx6ryBYNj0JT8L8E5rS63WdsHovGrpG8T0q1e88LnIwrOIRR4V7xO8Y8YQc2k-N3HvOu57y8nUy9OzgpNVM5bnogfBNbWKV5nI4oDwSOJGigkroAdD3lpuw7H2tvY44To9jpl14FZQ5p6HAGElZUdD8Vtg0ZUkxXApy4kIwTXCxIwQcdi6e5k">
+                    <span class="absolute top-4 right-4 bg-primary text-on-primary px-sm py-1 rounded-full font-label-caps text-[10px] shadow-sm">COOKING CLUB</span>
+                </div>
+                <div class="p-md">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Legendary Yakisoba</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg">Our 20th anniversary special recipe. Extra ginger and love!</p>
+                    <button class="w-full py-sm bg-surface-container-high text-primary font-bold rounded-lg border-2 border-transparent hover:border-primary transition-all custom-bounce">Visit Stall</button>
+                </div>
+            </div>
+            <!-- Stall Card 2: Basketball Club -->
+            <div class="min-w-[320px] bg-white rounded-lg overflow-hidden sticker-lift border-2 border-outline shadow-[6px_6px_0px_0px_rgba(145,111,105,0.2)]">
+                <div class="h-48 relative">
+                    <img alt="Basketball Club Takoyaki" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmnJ1-KcxSBfhQmlSZwHh5qSxHMkH499HMwTmKP-8cLak93bJwBXWZCmBxFylooG6fRPYZhXm5YiI30zPqu7zTzL4DDGzIP87HmabUFP28kKfW3r6VOMnZefm5MWoX0CjpcdwWz-qRgLJyk0w4WnpcbeoJm7h0tKMPc4W__-XRENW4GTVR2dzeyI62zwjRXE7y3ml2HmqOEl0b29JQZxE48eVbehrd0twGkvMK7fRzdt1ps1LIiWhGAS2RslNXoQhmznAhBL_PXQU">
+                    <span class="absolute top-4 right-4 bg-primary text-on-primary px-sm py-1 rounded-full font-label-caps text-[10px] shadow-sm">BASKETBALL CLUB</span>
+                </div>
+                <div class="p-md">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Slam Dunk Takoyaki</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg">Fuel up like an athlete with our oversized octopus balls.</p>
+                    <button class="w-full py-sm bg-surface-container-high text-primary font-bold rounded-lg border-2 border-transparent hover:border-primary transition-all custom-bounce">Visit Stall</button>
+                </div>
+            </div>
+            <!-- Stall Card 3: Literature Club -->
+            <div class="min-w-[320px] bg-white rounded-lg overflow-hidden sticker-lift border-2 border-outline shadow-[6px_6px_0px_0px_rgba(145,111,105,0.2)]">
+                <div class="h-48 relative">
+                    <img alt="Literature Club Cafe" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPDWNYvJerIiZwN7ZUrbyAr-6pgrDbPscFz4jrMoi34iW0qzvwABpdYft4U3JigWLgdjF_93lY1CNert14RvQzVDpLa82SjZKERuh4lOBIhjFgg7xwL7qF4Y2zVij4oW-XzEi8A-hI1zhq9h-gmgCh9YZ0yMCKbU2OQY3SQZccyfvbxPApd1OXJub7Hq-ZQcCed4l8dZ6tdj5opr2Ok3zY-ysW-Wi2ebItTe4IQW0lJIP0I6qLk8OAmnROYjJ9D4CcOAg-rZ4mWc0">
+                    <span class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-sm py-1 rounded-full font-label-caps text-[10px] shadow-sm">LITERATURE</span>
+                </div>
+                <div class="p-md">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Novelty Tea House</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg">Enjoy a quiet read with our student-written zines and tea.</p>
+                    <button class="w-full py-sm bg-surface-container-high text-primary font-bold rounded-lg border-2 border-transparent hover:border-primary transition-all custom-bounce">Visit Stall</button>
+                </div>
+            </div>
+            <!-- Stall Card 4: Art Club -->
+            <div class="min-w-[320px] bg-white rounded-lg overflow-hidden sticker-lift border-2 border-outline shadow-[6px_6px_0px_0px_rgba(145,111,105,0.2)]">
+                <div class="h-48 relative">
+                    <img alt="Art Club Exhibition" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHsDf7na4GDpse4vvBI8Dl785KSjuhISmEclQ9Zv4dIspn69Ahg2eBTcyqZeXaVkNvKzQ9BUVasoPNenC5HXsUOcKtbqP-aCy0gz7GwTwLAAGPKcekN4sj0y5xHBCRGccZ1PLhvtlN4pfwoAfxo3R3ptK4rbuHZf0Z0MAvfOvKYCjaXk8kqeXBtY_PtF1U6dEI_Vlc2Lwa1sxWfcdnDQ3mRjXE_sgxY3J6SHUCYNK3hGAspENU7WLLloZgO9rjOys0NtsXzk3Adg8">
+                    <span class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full font-label-caps text-[10px] shadow-sm">ART CLUB</span>
+                </div>
+                <div class="p-md">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Live Canvas 2024</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg">Watch us paint a massive 10-meter mural throughout the fest.</p>
+                    <button class="w-full py-sm bg-surface-container-high text-primary font-bold rounded-lg border-2 border-transparent hover:border-primary transition-all custom-bounce">Visit Stall</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 3: Game Entry (Bento Layout) -->
+    <section class="py-xl px-margin-desktop max-w-screen-2xl mx-auto">
+        <div class="bg-surface-container-highest rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[550px] border-4 border-secondary shadow-[12px_12px_0px_0px_rgba(78,93,140,1)] relative">
+            <!-- Content Side -->
+            <div class="lg:col-span-5 p-lg md:p-xl flex flex-col justify-center items-start z-10 relative bg-white/60 backdrop-blur-md">
+                <div class="inline-block px-sm py-xs bg-tertiary text-on-tertiary rounded-lg font-label-caps text-label-caps mb-md shadow-sm">VIRTUAL CAMPUS</div>
+                <h2 class="font-handwriting text-[48px] text-primary mb-md leading-none">Interactive RPG Mode</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-xl">
+                    Can't make it to campus? Experience the Seishun magic as an avatar! Talk to club presidents, play mini-games, and collect digital badges.
+                </p>
+                <a href="game-build/web.html" class="bg-secondary text-on-secondary px-xl py-md rounded-lg font-headline-md text-headline-md hover:translate-y-1 hover:shadow-none transition-all custom-bounce shadow-[4px_4px_0px_0px_rgba(6,24,69,1)] inline-block text-center">
+                    Enter Virtual School
+                </a>
+                <div class="mt-xl flex items-center gap-md">
+                    <div class="flex -space-x-3">
+                        <img alt="User 1" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiV3-NXEelKQfCEBsBvo9SM_NshkBFC0Uz5lVPNBQ4NrXQC-dcaLa-LrDd9Nmsj2-ZWZYaSSVGKO6AxyqBinmdySWmzZOXst2Rr-nboXGqDbsZTgXiKHm64IS4qaGalsJOI8uroQXtNEsUEOUJPC_IyB_qxB2P4SymZU2MdyZ6z0HbSyoFdZiCUZcUm-wgVJtMY4T0ROgkEOL9VyZprY-aKGxXUoGHDixq2Tdgfixa1nSEttkhBLYqxU0f46I_fAPyv7aLCCj1ZEA">
+                        <img alt="User 2" class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN-orU_kBUYYpEGXEqVV1bkiJmNCQK2MJdi6wFBzNfRMq7JzlIiSNM4YPuSEFvWiCsV7-9vFDgbLquR6SVZsQv8yHq4p9uf0VVYKxFfY38ZWMg4dcux9U5JEzjfB_cuQgpBGTBof1xTsCHAd9C5PRj2Zy5zRiMcK3FsCzRL1A8olWylU0htSwHmRSoFnfQDnqDOZKzcaKrbei5oDrO50pvm5klvxCRKRHgC5a1R3ITSP9RRJn-bO7mqEcm4yGvVK8rS6LfEPNSv9Y">
+                    </div>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">+2.5k Students Playing</span>
+                </div>
+            </div>
+            <!-- Visual Side -->
+            <div class="lg:col-span-7 relative min-h-[400px] lg:min-h-auto overflow-hidden bg-surface-dim">
+                <img alt="Retro 2D pixel art school festival scene" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiO05AjO9Dl2q8uw1ybs41dvdYjuRDT06FVa4Zq5_ae8v-ATCkBo2cCDwr3YRzW3na3K5uFiZHGP3HFVIPavsV2nUOIMSkN9DqjedXbxesmDtPVqQGuCiFHfvRpUXX1fGJ4Y2HRyiJjLOr9VbQkZqXCuTvPzxtz2AZ9_s3x9j3xwHzt6VwF6sy5_ZErqAW7KaUIxILkqdlDaa23hdQbI934sigbtx3TeRGaM2Qgjmfe8i7-QpgsbvC6KSo-9P3-Sl4lLYRJxfI5Cg">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/60 via-transparent to-transparent"></div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-secondary dark:bg-on-secondary-fixed">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-margin-desktop py-lg gap-md max-w-screen-2xl mx-auto">
+        <div class="flex flex-col gap-xs">
+            <span class="font-headline-md text-headline-md text-on-secondary">SEISHUN FEST</span>
+            <p class="font-body-md text-body-md text-on-secondary/80 max-w-sm">
+                The official portal for Seishun High School's annual celebration of youth and creativity.
+            </p>
+        </div>
+        <nav class="flex flex-wrap gap-lg">
+            <a class="text-on-secondary/80 dark:text-secondary-fixed/80 font-body-md text-body-md hover:text-tertiary-fixed transition-colors" href="#">Access Map</a>
+            <a class="text-on-secondary/80 dark:text-secondary-fixed/80 font-body-md text-body-md hover:text-tertiary-fixed transition-colors" href="#">School Website</a>
+            <a class="text-on-secondary/80 dark:text-secondary-fixed/80 font-body-md text-body-md hover:text-tertiary-fixed transition-colors" href="#">Contact Committee</a>
+            <a class="text-on-secondary/80 dark:text-secondary-fixed/80 font-body-md text-body-md hover:text-tertiary-fixed transition-colors" href="#">Privacy Policy</a>
+        </nav>
+        <div class="flex flex-col items-end gap-sm">
+            <div class="flex gap-md">
+                <a class="text-on-secondary hover:text-tertiary-fixed transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+                <a class="text-on-secondary hover:text-tertiary-fixed transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+            </div>
+            <p class="font-body-md text-body-md text-on-secondary/60">© 2024 Seishun High School Festival Committee. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<script>
+    // Micro-interactions for horizontal scroll
+    const scrollContainer = document.querySelector('.hide-scrollbar');
+    const buttons = document.querySelectorAll('button');
+    let nextBtn, prevBtn;
+
+    buttons.forEach(btn => {
+        if (btn.querySelector('.material-symbols-outlined')?.textContent === 'arrow_forward') nextBtn = btn;
+        if (btn.querySelector('.material-symbols-outlined')?.textContent === 'arrow_back') prevBtn = btn;
+    });
+
+    if (nextBtn && scrollContainer) {
+        nextBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+    }
+    if (prevBtn && scrollContainer) {
+        prevBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: -340, behavior: 'smooth' });
+        });
+    }
+</script>
+
+
+</body></html>

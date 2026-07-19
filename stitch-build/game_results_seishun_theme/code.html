@@ -1,0 +1,286 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Seishun Gakuensai - Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Space+Grotesk:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #b51c00;
+            opacity: 0;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+        .sticker-rotate {
+            transform: rotate(-1.5deg);
+        }
+        .hover-lift {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px) rotate(0.5deg);
+        }
+        .badge-glow {
+            filter: drop-shadow(0 0 15px rgba(181, 28, 0, 0.2));
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#251a00",
+                      "on-primary-fixed-variant": "#8e1300",
+                      "on-primary-fixed": "#3e0400",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed-dim": "#edc157",
+                      "primary": "#b51c00",
+                      "on-surface": "#1b1c15",
+                      "background": "#fbfaee",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#936f03",
+                      "outline-variant": "#e5bdb6",
+                      "secondary-fixed-dim": "#b6c5fb",
+                      "inverse-on-surface": "#f2f1e5",
+                      "on-background": "#1b1c15",
+                      "on-tertiary-fixed-variant": "#5b4300",
+                      "on-primary-container": "#fffbff",
+                      "secondary-container": "#b9c7fd",
+                      "on-tertiary-container": "#fffbff",
+                      "tertiary": "#755700",
+                      "primary-container": "#dc3214",
+                      "surface-dim": "#dbdbcf",
+                      "on-secondary-fixed": "#061845",
+                      "surface-tint": "#ba1c00",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#303129",
+                      "secondary": "#4e5d8c",
+                      "outline": "#916f69",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#efeee3",
+                      "surface-container-low": "#f5f4e8",
+                      "surface-bright": "#fbfaee",
+                      "on-surface-variant": "#5c403a",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#dbe1ff",
+                      "tertiary-fixed": "#ffdf9b",
+                      "surface-variant": "#e4e3d7",
+                      "on-secondary-fixed-variant": "#364572",
+                      "surface": "#fbfaee",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#445281",
+                      "primary-fixed-dim": "#ffb4a5",
+                      "surface-container-high": "#e9e9dd",
+                      "inverse-primary": "#ffb4a5",
+                      "primary-fixed": "#ffdad3",
+                      "surface-container-highest": "#e4e3d7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "40px",
+                      "xs": "8px",
+                      "sm": "16px",
+                      "margin-desktop": "48px",
+                      "xl": "64px",
+                      "margin-mobile": "16px",
+                      "md": "24px",
+                      "gutter": "20px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "display": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-caps": ["Space Grotesk"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md border-b-2 border-secondary shadow-[4px_4px_0px_0px_rgba(6,24,69,1)]">
+<div class="flex justify-between items-center w-full px-margin-desktop py-sm max-w-screen-2xl mx-auto">
+<div class="font-display-lg text-display-lg tracking-tight text-primary">SEISHUN FEST</div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="#">Event Info</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="#">Stall List</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="#">Mini-Game</a>
+<a class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="#">Schedule</a>
+</nav>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-high rounded-full cursor-pointer transition-all">search</span>
+<button class="bg-primary text-on-primary px-md py-2 rounded-lg font-bold shadow-[2px_2px_0px_0px_rgba(6,24,69,1)] active:translate-y-0.5 active:translate-x-0.5 active:shadow-none transition-all">Entry Ticket</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-40 pb-xl px-gutter relative overflow-hidden">
+<!-- Confetti Animation Layer -->
+<div class="confetti-container" id="confetti-anchor"><div class="confetti" style="width: 6.14989px; height: 6.14989px; left: 5.65397%; background-color: rgb(255, 255, 255); border-radius: 1px; animation: 3.04663s linear 1.10612s infinite normal none running fall;"></div><div class="confetti" style="width: 11.5332px; height: 11.5332px; left: 48.9916%; background-color: rgb(78, 93, 140); border-radius: 1px; animation: 2.07567s linear 0.176196s infinite normal none running fall;"></div><div class="confetti" style="width: 5.35542px; height: 5.35542px; left: 19.9602%; background-color: rgb(181, 28, 0); border-radius: 50%; animation: 3.40746s linear 1.99247s infinite normal none running fall;"></div><div class="confetti" style="width: 11.8598px; height: 11.8598px; left: 14.7515%; background-color: rgb(255, 223, 155); border-radius: 50%; animation: 3.79708s linear 1.64727s infinite normal none running fall;"></div><div class="confetti" style="width: 4.38297px; height: 4.38297px; left: 31.8601%; background-color: rgb(255, 255, 255); border-radius: 1px; animation: 3.06202s linear 0.233485s infinite normal none running fall;"></div><div class="confetti" style="width: 5.19676px; height: 5.19676px; left: 29.5411%; background-color: rgb(181, 28, 0); border-radius: 1px; animation: 3.18827s linear 0.805194s infinite normal none running fall;"></div><div class="confetti" style="width: 10.873px; height: 10.873px; left: 50.7141%; background-color: rgb(181, 28, 0); border-radius: 50%; animation: 2.41583s linear 1.48404s infinite normal none running fall;"></div><div class="confetti" style="width: 4.35929px; height: 4.35929px; left: 12.3687%; background-color: rgb(255, 255, 255); border-radius: 50%; animation: 2.61126s linear 0.325827s infinite normal none running fall;"></div><div class="confetti" style="width: 6.73924px; height: 6.73924px; left: 36.2018%; background-color: rgb(181, 28, 0); border-radius: 1px; animation: 2.81768s linear 0.197439s infinite normal none running fall;"></div><div class="confetti" style="width: 4.09193px; height: 4.09193px; left: 5.41926%; background-color: rgb(181, 28, 0); border-radius: 50%; animation: 2.13888s linear 0.68147s infinite normal none running fall;"></div><div class="confetti" style="width: 4.32381px; height: 4.32381px; left: 92.9693%; background-color: rgb(181, 28, 0); border-radius: 1px; animation: 3.98565s linear 0.625245s infinite normal none running fall;"></div><div class="confetti" style="width: 6.93696px; height: 6.93696px; left: 62.3089%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 3.32129s linear 0.980647s infinite normal none running fall;"></div><div class="confetti" style="width: 5.19471px; height: 5.19471px; left: 48.5397%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 2.55948s linear 0.594075s infinite normal none running fall;"></div><div class="confetti" style="width: 4.6706px; height: 4.6706px; left: 92.5821%; background-color: rgb(78, 93, 140); border-radius: 1px; animation: 3.9011s linear 1.09391s infinite normal none running fall;"></div><div class="confetti" style="width: 11.6656px; height: 11.6656px; left: 10.0955%; background-color: rgb(255, 255, 255); border-radius: 1px; animation: 2.49767s linear 0.509454s infinite normal none running fall;"></div><div class="confetti" style="width: 10.7435px; height: 10.7435px; left: 32.8202%; background-color: rgb(78, 93, 140); border-radius: 1px; animation: 3.62286s linear 1.21397s infinite normal none running fall;"></div><div class="confetti" style="width: 8.66071px; height: 8.66071px; left: 36.3106%; background-color: rgb(255, 223, 155); border-radius: 50%; animation: 3.02653s linear 0.641804s infinite normal none running fall;"></div><div class="confetti" style="width: 6.26623px; height: 6.26623px; left: 77.4113%; background-color: rgb(181, 28, 0); border-radius: 1px; animation: 2.74736s linear 0.790037s infinite normal none running fall;"></div><div class="confetti" style="width: 6.88447px; height: 6.88447px; left: 69.5575%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 2.35457s linear 0.0845956s infinite normal none running fall;"></div><div class="confetti" style="width: 4.16271px; height: 4.16271px; left: 47.2305%; background-color: rgb(181, 28, 0); border-radius: 50%; animation: 3.46502s linear 0.51072s infinite normal none running fall;"></div><div class="confetti" style="width: 4.03964px; height: 4.03964px; left: 49.0204%; background-color: rgb(255, 255, 255); border-radius: 50%; animation: 2.28207s linear 1.89933s infinite normal none running fall;"></div><div class="confetti" style="width: 8.28316px; height: 8.28316px; left: 47.0418%; background-color: rgb(181, 28, 0); border-radius: 1px; animation: 3.16953s linear 0.166234s infinite normal none running fall;"></div><div class="confetti" style="width: 5.18112px; height: 5.18112px; left: 13.0752%; background-color: rgb(78, 93, 140); border-radius: 1px; animation: 2.483s linear 1.77789s infinite normal none running fall;"></div><div class="confetti" style="width: 9.06635px; height: 9.06635px; left: 31.9337%; background-color: rgb(255, 255, 255); border-radius: 50%; animation: 3.10428s linear 0.671208s infinite normal none running fall;"></div><div class="confetti" style="width: 5.02647px; height: 5.02647px; left: 7.60302%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 2.67521s linear 0.874227s infinite normal none running fall;"></div><div class="confetti" style="width: 9.40383px; height: 9.40383px; left: 92.388%; background-color: rgb(255, 255, 255); border-radius: 1px; animation: 2.18616s linear 0.942677s infinite normal none running fall;"></div><div class="confetti" style="width: 7.09119px; height: 7.09119px; left: 18.2739%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 3.99056s linear 1.94371s infinite normal none running fall;"></div><div class="confetti" style="width: 5.78082px; height: 5.78082px; left: 53.5662%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 2.23931s linear 0.416252s infinite normal none running fall;"></div><div class="confetti" style="width: 7.52661px; height: 7.52661px; left: 60.9397%; background-color: rgb(255, 255, 255); border-radius: 1px; animation: 2.70736s linear 0.870117s infinite normal none running fall;"></div><div class="confetti" style="width: 5.60425px; height: 5.60425px; left: 42.2338%; background-color: rgb(255, 255, 255); border-radius: 50%; animation: 2.35473s linear 1.0374s infinite normal none running fall;"></div><div class="confetti" style="width: 7.20541px; height: 7.20541px; left: 60.5337%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 2.45733s linear 1.27688s infinite normal none running fall;"></div><div class="confetti" style="width: 10.7379px; height: 10.7379px; left: 20.7559%; background-color: rgb(255, 223, 155); border-radius: 50%; animation: 3.0437s linear 1.38272s infinite normal none running fall;"></div><div class="confetti" style="width: 5.86041px; height: 5.86041px; left: 1.4685%; background-color: rgb(255, 255, 255); border-radius: 1px; animation: 2.50154s linear 0.586461s infinite normal none running fall;"></div><div class="confetti" style="width: 7.92524px; height: 7.92524px; left: 9.26963%; background-color: rgb(78, 93, 140); border-radius: 1px; animation: 3.12784s linear 0.664369s infinite normal none running fall;"></div><div class="confetti" style="width: 9.19995px; height: 9.19995px; left: 26.4276%; background-color: rgb(255, 255, 255); border-radius: 50%; animation: 2.15414s linear 1.13134s infinite normal none running fall;"></div><div class="confetti" style="width: 7.04065px; height: 7.04065px; left: 73.238%; background-color: rgb(255, 223, 155); border-radius: 1px; animation: 2.54042s linear 1.43328s infinite normal none running fall;"></div><div class="confetti" style="width: 9.71359px; height: 9.71359px; left: 44.8195%; background-color: rgb(255, 255, 255); border-radius: 50%; animation: 3.9877s linear 1.88287s infinite normal none running fall;"></div><div class="confetti" style="width: 10.5439px; height: 10.5439px; left: 24.498%; background-color: rgb(255, 255, 255); border-radius: 50%; animation: 2.72177s linear 1.72344s infinite normal none running fall;"></div><div class="confetti" style="width: 9.00405px; height: 9.00405px; left: 76.53%; background-color: rgb(181, 28, 0); border-radius: 50%; animation: 3.55653s linear 1.6252s infinite normal none running fall;"></div><div class="confetti" style="width: 4.83036px; height: 4.83036px; left: 45.9752%; background-color: rgb(78, 93, 140); border-radius: 1px; animation: 3.55731s linear 0.539235s infinite normal none running fall;"></div></div>
+<div class="max-w-4xl mx-auto space-y-lg relative z-20">
+<!-- Header Section -->
+<div class="text-center space-y-sm">
+<div class="inline-block px-md py-xs bg-secondary text-on-secondary rounded-full font-label-caps text-label-caps mb-base sticker-rotate">
+                MISSION ACCOMPLISHED
+            </div>
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">Congratulations!<br>You're a Festival Legend!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">You've successfully visited all 10 stalls and collected every stamp. Your school spirit is legendary!</p>
+</div>
+<!-- Achievement Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Merit Badge Card -->
+<div class="md:col-span-12 bg-surface-container-low border-2 border-secondary rounded-xl p-lg text-center relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(78,93,140,0.1)]">
+<div class="absolute -top-12 -right-12 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-md">
+<div class="relative w-56 h-56 flex items-center justify-center badge-glow">
+<!-- School Award Ribbon Style Circle -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-variant" cx="112" cy="112" fill="transparent" r="100" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="112" cy="112" fill="transparent" r="100" stroke="currentColor" stroke-dasharray="628" stroke-dashoffset="0" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<div class="w-32 h-32 bg-primary rounded-full flex items-center justify-center border-4 border-white shadow-lg">
+<span class="material-symbols-outlined text-on-primary text-6xl" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+</div>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-secondary uppercase tracking-wider">Grand Explorer Merit Badge</h2>
+<p class="font-label-caps text-label-caps text-primary mt-xs">STAMP RALLY COMPLETE • 10/10 VISITED</p>
+</div>
+</div>
+</div>
+<!-- Share Card -->
+<div class="md:col-span-7 bg-white border-2 border-primary rounded-xl p-md shadow-[6px_6px_0px_0px_rgba(181,28,0,1)] sticker-rotate overflow-hidden flex flex-col gap-md">
+<div class="aspect-video w-full rounded-lg overflow-hidden border border-outline-variant relative">
+<img alt="Seishun Festival Atmosphere" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFhYTPUBpyyxEN40vDkm6ddfoKD4m2byDgrpWOsnB0SQTJK04Vit9cao5QfnMaiLkTRQZg1bSW8e9fgQgq0WFoC2rzScfnnWHd2FUz3ZZ7GWPtbYBrI-WrAxcrCZV8LaXhxUC3fvj7vC7ZCPqRxlMlkHxoRB81B_qeIj52LXhoYfdmlevqJYQ2JC5fK8INsu5BnTA50w50ErkVmHuAgACCAHmW5jN4q83GoauqB9aDRmo8IQCPv-lTaSY8x35fGPpoUDFgj7m2qGY">
+<div class="absolute bottom-0 left-0 right-0 bg-primary/90 p-xs text-center">
+<p class="text-on-primary font-label-caps text-[10px]">SEISHUN GAKUENSAI 2024 • OFFICIAL RECORD</p>
+</div>
+</div>
+<div class="flex-grow space-y-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">local_activity</span>
+<span class="font-display font-extrabold text-secondary text-headline-md tracking-tighter">Seishun Fest '24</span>
+</div>
+<p class="font-headline-md text-headline-md leading-tight text-on-surface">I just completed the Full Stamp Rally! Come join the festival!</p>
+<div class="flex items-center gap-md pt-base border-t border-surface-variant">
+<div class="bg-white p-1 border border-outline-variant rounded">
+<img alt="QR Code" class="w-10 h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnVpMgkyKcfYhq3mkeqv0MziyGwsizjdovhYbImGap7_bXL1KznVp7HYkO3a0Y-fy0JtDmk49277B84otUmUdmrWDdWNxq2Yn5XG78VJANgNJGIBZ1Fp-PB6Cr7MhkwphqA-dPZvaYtKFouEcn2iTKe_4tlBNwMEu9pPHnhOfBy3u9vjE-RIWu0h8Cvj30iS91m6HfFtGKau2fDwprqnd28comhwgGkrOXUgL-bBsBAuzo_396lHmoyAIfDJ1hGFSiTyEqDBWXyi4">
+</div>
+<span class="font-label-caps text-[11px] text-on-surface-variant leading-tight">SCAN FOR<br>EVENT PASS</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="md:col-span-5 flex flex-col gap-sm justify-center">
+<button class="w-full bg-[#1DA1F2] text-white py-md rounded-lg font-headline-md flex items-center justify-center gap-base hover-lift shadow-[4px_4px_0px_0px_rgba(6,24,69,1)] active:translate-y-0.5 active:translate-x-0.5 active:shadow-none transition-all">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+                    Post to X
+                </button>
+<button class="w-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white py-md rounded-lg font-headline-md flex items-center justify-center gap-base hover-lift shadow-[4px_4px_0px_0px_rgba(6,24,69,1)] active:translate-y-0.5 active:translate-x-0.5 active:shadow-none transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">camera</span>
+                    IG Story
+                </button>
+<button class="w-full bg-secondary text-on-secondary py-md rounded-lg font-headline-md flex items-center justify-center gap-base hover-lift shadow-[4px_4px_0px_0px_rgba(181,28,0,1)] active:translate-y-0.5 active:translate-x-0.5 active:shadow-none transition-all">
+<span class="material-symbols-outlined">download</span>
+                    Save Poster
+                </button>
+</div>
+</div>
+<!-- Back Navigation -->
+<div class="flex justify-center pt-lg">
+<button class="flex items-center gap-base text-primary font-headline-md group transition-all font-bold" onclick="window.location.href='{{DATA:SCREEN:SCREEN_10}}'">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                Back to Campus Map
+            </button>
+</div>
+</div>
+</main>
+<!-- Footer from COMPONENTS_6 -->
+<footer class="w-full bg-secondary dark:bg-on-secondary-fixed mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-margin-desktop py-lg gap-md max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-xs">
+<div class="font-headline-md text-headline-md text-on-secondary">SEISHUN FEST</div>
+<p class="font-body-md text-body-md text-on-secondary/80">© 2024 Seishun High School Festival Committee. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap gap-md">
+<a class="font-body-md text-body-md text-on-secondary/80 hover:text-tertiary-fixed transition-colors opacity-100 hover:opacity-80" href="#">Access Map</a>
+<a class="font-body-md text-body-md text-on-secondary/80 hover:text-tertiary-fixed transition-colors opacity-100 hover:opacity-80" href="#">School Website</a>
+<a class="font-body-md text-body-md text-on-secondary/80 hover:text-tertiary-fixed transition-colors opacity-100 hover:opacity-80" href="#">Contact Committee</a>
+<a class="font-body-md text-body-md text-on-secondary/80 hover:text-tertiary-fixed transition-colors opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<script>
+    // Confetti Generator
+    function createConfetti() {
+        const container = document.getElementById('confetti-anchor');
+        const colors = ['#b51c00', '#4e5d8c', '#ffdf9b', '#ffffff'];
+        const count = 40;
+
+        for (let i = 0; i < count; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            const size = Math.random() * 8 + 4;
+            const left = Math.random() * 100;
+            const delay = Math.random() * 2;
+            const duration = Math.random() * 2 + 2;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            confetti.style.width = `${size}px`;
+            confetti.style.height = `${size}px`;
+            confetti.style.left = `${left}%`;
+            confetti.style.backgroundColor = color;
+            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '1px';
+            confetti.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+            
+            container.appendChild(confetti);
+        }
+    }
+
+    window.addEventListener('load', createConfetti);
+</script>
+
+
+</body></html>
