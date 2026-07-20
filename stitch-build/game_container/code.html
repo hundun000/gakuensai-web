@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Matsuri RPG - Festival Explorer</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500&family=Space+Grotesk:wght@500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#fcf9f8",
+            "surface-container": "#f0eded",
+            "primary": "#b61524",
+            "secondary-container": "#b9c7fd",
+            "outline": "#8f6f6d",
+            "on-background": "#1c1b1b",
+            "surface-container-low": "#f6f3f2",
+            "on-tertiary-container": "#fafdfb",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#ba1826",
+            "surface-dim": "#dcd9d9",
+            "on-surface": "#1c1b1b",
+            "surface-variant": "#e5e2e1",
+            "tertiary-container": "#717574",
+            "primary-fixed": "#ffdad7",
+            "outline-variant": "#e4bebb",
+            "background": "#fcf9f8",
+            "on-primary": "#ffffff",
+            "tertiary": "#595d5c",
+            "secondary": "#4e5d8c",
+            "on-secondary-container": "#445281",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-surface-variant": "#5b403e",
+            "surface": "#fcf9f8",
+            "inverse-on-surface": "#f3f0ef",
+            "primary-container": "#da3339",
+            "surface-container-high": "#eae7e7",
+            "inverse-surface": "#313030",
+            "on-secondary-fixed": "#061845",
+            "inverse-primary": "#ffb3ae",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e5e2e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0px",
+            "lg": "0px",
+            "xl": "0px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "stack-sm": "8px",
+            "gutter-mobile": "12px",
+            "stack-xl": "48px",
+            "margin-mobile": "20px",
+            "stack-lg": "32px",
+            "stack-md": "16px",
+            "stack-xs": "4px"
+          },
+          "fontFamily": {
+            "headline-xl": ["Anybody"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Anybody"],
+            "headline-md": ["Anybody"],
+            "label-md": ["Space Grotesk"],
+            "label-sm": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-md-mobile": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .brutalist-border {
+      border: 1.5pt solid #1A1A1A;
+    }
+    .brutalist-shadow {
+      box-shadow: 4px 4px 0px 0px #1A1A1A;
+    }
+    .active-press:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px 0px #1A1A1A;
+    }
+    .pixel-mask {
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile py-stack-sm bg-surface-bright border-b-2 border-on-background">
+  <div class="flex items-center gap-2 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform active:scale-95 cursor-pointer">
+    <span class="material-symbols-outlined text-primary">arrow_back</span>
+    <span class="font-headline-md text-headline-md-mobile font-bold text-primary">Return</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="font-headline-md text-headline-md-mobile font-bold text-primary">Matsuri RPG</span>
+    <span class="material-symbols-outlined text-primary">festival</span>
+  </div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-16 pb-20 flex flex-col">
+  <!-- Game Container Area (approx 55% height) -->
+  <section class="relative w-full aspect-[9/16] max-h-[60vh] bg-on-background overflow-hidden border-b-4 border-on-background">
+    <!-- 游戏容器 -->
+    <div id="game-wrapper" class="relative w-full h-full">
+      <!-- 允许全屏属性 -->
+      <iframe id="game-frame" src="../../game-build/web.html" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" class="w-full h-full border-none"></iframe>
+
+      <!-- 全屏切换按钮（日文） -->
+      <button id="fullscreen-btn" class="absolute bottom-4 right-4 bg-primary text-on-primary w-12 h-12 flex items-center justify-center brutalist-border brutalist-shadow active-press z-10">
+        <span class="material-symbols-outlined">fullscreen</span>
+      </button>
+    </div>
+  </section>
+  <!-- Instructions Section -->
+  <section class="px-margin-mobile py-stack-lg flex flex-col gap-stack-md bg-surface-bright">
+    <div class="flex items-center gap-2 mb-stack-sm">
+      <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-background uppercase tracking-tight">How to Play</h2>
+    </div>
+    <!-- Controls Cards - Bento Style -->
+    <div class="grid grid-cols-1 gap-stack-md">
+      <!-- Move Controls -->
+      <div class="bg-surface-container-lowest brutalist-border p-stack-md brutalist-shadow">
+        <p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-stack-sm">Movement</p>
+        <div class="flex items-center justify-between">
+          <div class="flex gap-2">
+            <span class="px-3 py-1 brutalist-border font-label-md text-label-md bg-surface-variant">W</span>
+            <span class="px-3 py-1 brutalist-border font-label-md text-label-md bg-surface-variant">A</span>
+            <span class="px-3 py-1 brutalist-border font-label-md text-label-md bg-surface-variant">S</span>
+            <span class="px-3 py-1 brutalist-border font-label-md text-label-md bg-surface-variant">D</span>
+          </div>
+          <span class="font-body-md text-body-md">or Arrows</span>
+        </div>
+        <p class="mt-stack-sm font-body-md text-body-md text-on-surface">Explore the festival grounds and find stalls.</p>
+      </div>
+      <!-- Interact Controls -->
+      <div class="bg-surface-container-lowest brutalist-border p-stack-md brutalist-shadow">
+        <p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-stack-sm">Interactions</p>
+        <div class="flex items-center gap-4">
+          <div class="flex gap-2">
+            <span class="px-4 py-1 brutalist-border font-label-md text-label-md bg-primary text-on-primary">SPACE</span>
+            <span class="px-3 py-1 brutalist-border font-label-md text-label-md bg-surface-variant">E</span>
+          </div>
+          <span class="font-body-md text-body-md">Talk / Purchase</span>
+        </div>
+        <p class="mt-stack-sm font-body-md text-body-md text-on-surface">Interact with NPCs or play mini-games at stalls.</p>
+      </div>
+      <!-- Pro Tip -->
+      <div class="bg-secondary-container brutalist-border p-stack-md brutalist-shadow">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="material-symbols-outlined text-on-secondary-container">info</span>
+          <span class="font-label-md text-label-md text-on-secondary-container">FESTIVAL TIP</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-secondary-container">Collecting 5 stall stamps unlocks the Secret Gakuensai concert stage!</p>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-on-background border-t-2 border-on-background">
+  <!-- Active Tab: Guide -->
+  <a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-none p-2 border-r-2 border-l-2 border-on-background w-1/3 h-full transition-all active:scale-95" href="#">
+    <span class="material-symbols-outlined">menu_book</span>
+    <span class="font-label-sm text-label-sm">Guide</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-surface-bright p-2 w-1/3 h-full hover:bg-primary-container transition-all active:scale-95" href="#">
+    <span class="material-symbols-outlined">backpack</span>
+    <span class="font-label-sm text-label-sm">Inventory</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-surface-bright p-2 w-1/3 h-full hover:bg-primary-container transition-all active:scale-95" href="#">
+    <span class="material-symbols-outlined">assignment</span>
+    <span class="font-label-sm text-label-sm">Quests</span>
+  </a>
+</nav>
+<script>
+  // Fullscreen toggle logic for iframe container
+  const fsBtn = document.getElementById('fullscreen-btn');
+  const wrapper = document.getElementById('game-wrapper');
+
+  fsBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      if (wrapper.requestFullscreen) {
+        wrapper.requestFullscreen();
+      } else if (wrapper.webkitRequestFullscreen) {
+        wrapper.webkitRequestFullscreen();
+      }
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape').catch(() => {});
+      }
+      fsBtn.querySelector('.material-symbols-outlined').textContent = 'fullscreen_exit';
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+      fsBtn.querySelector('.material-symbols-outlined').textContent = 'fullscreen';
+    }
+  });
+
+  // Simple scroll reveal for the instruction cards
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        entry.target.classList.remove('opacity-0', 'translate-y-4');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.brutalist-shadow').forEach(card => {
+    card.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-4');
+    observer.observe(card);
+  });
+</script>
+</body></html>
